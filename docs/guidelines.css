@@ -117,3 +117,7 @@ pre.g-code { margin: 0; padding: 16px; border-radius: var(--shape-m); background
 
 .g-foot { padding-block: 32px; border-top: 1px solid var(--md-outline-variant); }
 .g-foot .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; color: var(--md-on-surface-variant); font: var(--body-m); }
+.g-foot-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.g-version { height: 28px; padding: 0 12px; text-decoration: none; transition: border-color var(--dur-s), color var(--dur-s); }
+.g-version .ms { font-size: 16px; }
+.g-version:hover { border-color: var(--md-outline); color: var(--md-on-surface); }
