@@ -83,6 +83,15 @@ a.card:hover { border-color: var(--md-outline); }
 .top-app-bar.scrolled { background: var(--md-surface-container); }
 .top-app-bar.scrolled .brand-mark::after { background: var(--md-surface-container); }
 
+/* ---------- Hero gradient (animated, as on raysandesigns.com) ----------
+   The gradient is 4x wider than its box and drifts over 15s, so only one
+   stretch shows at a time: peachy coral, then sky and teal, then back.
+   Use on hero bands, case study covers, logo tiles, the contact card. */
+.hero-gradient {
+  background: var(--rd-hero-grad); background-size: 400% 400%;
+  animation: rd-gradient-shift 15s ease infinite;
+}
+
 /* Reading progress: hero-gradient line that grows as the page scrolls (js/scroll-progress.js) */
 .scroll-progress {
   position: absolute; left: 0; right: 0; bottom: -1px; height: 5px; z-index: 2; pointer-events: none;

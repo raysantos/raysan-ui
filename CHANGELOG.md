@@ -4,6 +4,7 @@
 
 - Scroll progress bar (`.scroll-progress` + `js/scroll-progress.js`), from raysandesigns.com: hero gradient grows along the header as you scroll.
 - Top app bar gets a bottom outline and tints to `surface-container` once the page scrolls.
+- `.hero-gradient`: the animated hero gradient (400% size, 15s drift), matching the site.
 - Guidelines page replaces the docs page.
 
 ## v0.1.0 — 2026-10-25

@@ -55,7 +55,7 @@
         <p class="overline">Design system · <a class="g-version" href="https://github.com/raysantos/raysan-ui/releases/tag/v0.1.1" title="Release notes on GitHub">v0.1.1</a></p>
         <h1 class="display-m">raysan-ui guidelines</h1>
         <p class="body-l muted" style="max-width:62ch">How every Raysan Designs site and app looks, reads and behaves. Built on Material Design 3, tuned to the raysandesigns.com look: calm surfaces, outlined cards, a coral-to-peach brand bar and a designed dark mode.</p>
-        <div class="g-hero-bar" aria-hidden="true"></div>
+        <div class="g-hero-bar hero-gradient" aria-hidden="true"></div>
       </div>
 
       <!-- 01 Principles -->
@@ -93,9 +93,9 @@
             <p>The hero gradient along the bottom of the top app bar, growing left to right as you read, with the colors slowly drifting. The default header for every page; scroll this one to see it. Add <code>.scroll-progress</code> inside the header and load <code>scroll-progress.js</code>.</p>
           </div>
           <div class="card">
-            <div style="height:56px;border-radius:var(--shape-l);background:var(--rd-hero-grad)"></div>
+            <div class="hero-gradient" style="height:96px;border-radius:var(--shape-l)"></div>
             <p class="supporting">Hero gradient</p>
-            <p>Coral, peach, sky, teal. Hero moments and case study covers only, never behind body text. Token: <code>--rd-hero-grad</code>.</p>
+            <p>Coral, peach, sky and teal, stretched 4× wider than the box and drifting over 15 seconds, so you only see one part at a time. Hero bands, case study covers and logo tiles; never behind body text. Use <code>.hero-gradient</code>, not the raw <code>--rd-hero-grad</code> token.</p>
           </div>
         </div>
       </section>

@@ -23,7 +23,7 @@
 
 /* Sections */
 .g-hero { display: grid; gap: 16px; padding-bottom: 40px; }
-.g-hero-bar { height: 8px; max-width: 320px; border-radius: var(--shape-full); background: var(--rd-hero-grad); }
+.g-hero-bar { height: 8px; max-width: 320px; border-radius: var(--shape-full); }
 .g-section { padding-block: 48px; border-top: 1px solid var(--md-outline-variant); scroll-margin-top: 72px; }
 .g-section > .overline { margin-bottom: 8px; }
 .g-section > h2 { font: var(--headline-l); margin-bottom: 12px; }
