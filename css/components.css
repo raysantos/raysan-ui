@@ -1,0 +1,96 @@
+/* raysan-ui · components.css
+   Buttons, chips, cards, text fields, top app bar and the theme toggle.
+   Load after base.css. Every value comes from a token. */
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  height: 40px; padding: 0 24px; border: 0; border-radius: var(--shape-full);
+  font: var(--label-l); text-decoration: none; cursor: pointer; white-space: nowrap;
+  transition: background-color var(--dur-s) var(--ease-std), box-shadow var(--dur-s) var(--ease-std);
+}
+.btn .ms { font-size: 18px; margin-left: -8px; }
+.btn.trail .ms { margin-left: 0; margin-right: -8px; }
+.btn-filled { background: var(--md-primary); color: var(--md-on-primary); }
+.btn-tonal { background: var(--md-secondary-container); color: var(--md-on-secondary-container); }
+.btn-outlined { background: transparent; color: var(--md-primary); border: 1px solid var(--md-outline); }
+.btn-text { background: transparent; color: var(--md-primary); padding: 0 12px; }
+.btn-lg { height: 56px; padding: 0 28px; font: var(--title-m); border-radius: var(--shape-l); }
+.btn:disabled, .btn[aria-disabled="true"] { opacity: .38; cursor: not-allowed; pointer-events: none; }
+
+/* Icon button (circular, 40px) */
+.icon-btn {
+  display: inline-grid; place-items: center; width: 40px; height: 40px; padding: 0;
+  border: 0; border-radius: var(--shape-full); background: transparent; color: var(--md-on-surface);
+  cursor: pointer; transition: background-color var(--dur-s);
+}
+.icon-btn:hover { background: var(--md-surface-container-high); }
+.icon-btn .ms { font-size: 22px; }
+@media (hover: none) { .icon-btn:hover { background: transparent; } }
+
+/* ---------- Chips ---------- */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 8px; height: 32px; padding: 0 14px;
+  border: 1px solid var(--rd-green-line); border-radius: var(--shape-full);
+  background: var(--rd-chip-fill); color: var(--rd-chip-ink); font: 700 .875rem/1 var(--md-font);
+}
+.chip .ms { font-size: 18px; color: currentColor; margin-left: -4px; }
+.chip-neutral { border-color: var(--md-outline-variant); background: transparent; color: var(--md-on-surface-variant); }
+
+/* ---------- Cards ---------- */
+.card {
+  display: flex; flex-direction: column; gap: 12px; padding: 24px;
+  border: 1px solid var(--md-outline-variant); border-radius: var(--shape-xl);
+  background: var(--md-surface); color: var(--md-on-surface); text-decoration: none;
+}
+.card-filled { background: var(--md-surface-container); border-color: transparent; }
+.card h3 { font: 700 1.625rem/1.2 var(--md-font); }
+.card p { font: var(--body-m); font-size: .9375rem; line-height: 1.4rem; color: var(--md-on-surface-variant); }
+.card .supporting { font: 700 .8125rem/1 var(--md-font); letter-spacing: .02em; color: var(--rd-chip-ink); }
+.card .chips { margin-top: auto; padding-top: 8px; }
+.card .card-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 4px; }
+.card-icon {
+  width: 48px; height: 48px; border-radius: 16px; display: grid; place-items: center;
+  background: var(--md-secondary-container); color: var(--md-on-secondary-container);
+}
+.card-icon.t { background: var(--md-tertiary-container); color: var(--md-on-tertiary-container); }
+.card-icon.p { background: var(--md-primary-container); color: var(--md-on-primary-container); }
+a.card { transition: border-color var(--dur-s); }
+a.card:hover { border-color: var(--md-outline); }
+
+/* ---------- Text fields (outlined) ---------- */
+.field { display: grid; gap: 6px; }
+.field label { font: var(--label-l); color: var(--md-on-surface-variant); }
+.field input, .field select, .field textarea {
+  min-height: 48px; padding: 12px 16px; border: 1px solid var(--md-outline); border-radius: var(--shape-s);
+  background: var(--md-surface); color: var(--md-on-surface); font: var(--body-l);
+}
+.field textarea { min-height: 96px; resize: vertical; }
+.field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible {
+  outline: 2px solid var(--md-primary); outline-offset: -1px; border-color: var(--md-primary);
+}
+.field .hint { font: var(--body-m); color: var(--md-on-surface-variant); }
+.field.error input, .field.error select, .field.error textarea { border-color: var(--md-error); }
+.field.error .hint { color: var(--md-error); }
+
+/* ---------- Top app bar ---------- */
+.top-app-bar { position: sticky; top: 0; z-index: 10; background: var(--md-surface); }
+.top-app-bar .wrap { height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.brand { display: inline-flex; align-items: center; gap: 12px; color: var(--md-on-surface); text-decoration: none; font: var(--title-l); }
+.brand-mark { width: 32px; height: 32px; border-radius: var(--shape-s); background: var(--rd-brand-bar); position: relative; flex: none; }
+.brand-mark::after {
+  content: ""; position: absolute; left: 0; bottom: 0; width: 60%; height: 62%;
+  background: var(--md-surface); border-top-right-radius: 6px;
+}
+
+/* ---------- Theme toggle (rendered by <theme-toggle>) ---------- */
+theme-toggle { display: inline-flex; }
+.theme-toggle {
+  display: inline-grid; place-items: center; width: 40px; height: 40px; padding: 0;
+  border: 0; border-radius: var(--shape-full); background: transparent; color: var(--md-on-surface);
+  cursor: pointer; transition: background-color var(--dur-s);
+}
+.theme-toggle:hover { background: var(--md-surface-container-high); }
+.theme-toggle .ms { font-size: 22px; }
+@media (hover: none) { .theme-toggle:hover { background: transparent; } }

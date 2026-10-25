@@ -1,0 +1,141 @@
+/* raysan-ui · tokens.css
+   Design tokens for Raysan Designs projects. Material Design 3 color roles,
+   type scale and shape scale, taken from raysandesigns.com.
+   Light is the default. Dark is its own palette (not an inversion), switched
+   with <html data-theme="dark">, which <theme-toggle> handles for you.
+
+   Brand themes: load a theme file AFTER this one and override only the
+   tokens that change (see themes/example.css). Never hard-code colors in
+   a project; reach for a token instead. */
+
+:root {
+  /* ---------- Color roles (light) ---------- */
+  --md-primary: #1b3867;
+  --md-on-primary: #ffffff;
+  --md-primary-container: #dde6f7;
+  --md-on-primary-container: #1b3867;
+  --md-secondary: #1a7aa8;
+  --md-on-secondary: #ffffff;
+  --md-secondary-container: #dff2fb;
+  --md-on-secondary-container: #0c4f6e;
+  --md-tertiary: #2e7d3a;
+  --md-on-tertiary: #ffffff;
+  --md-tertiary-container: #e6f7e8;
+  --md-on-tertiary-container: #226130;
+  --md-error: #b3261e;
+  --md-on-error: #ffffff;
+  --md-error-container: #f9dedc;
+  --md-on-error-container: #410e0b;
+
+  --md-surface: #ffffff;
+  --md-on-surface: #363636;
+  --md-on-surface-variant: #54595f;
+  --md-surface-container-lowest: #ffffff;
+  --md-surface-container-low: #fafbfc;
+  --md-surface-container: #f3f5f8;
+  --md-surface-container-high: #edf0f4;
+  --md-surface-container-highest: #e6e9ee;
+  --md-inverse-surface: #1b3867;
+  --md-inverse-on-surface: #ffffff;
+  --md-inverse-primary: #b8cbf2;
+  --md-outline: #8a8f96;
+  --md-outline-variant: #dedede;
+  --md-shadow: #000000;
+  --md-scrim: #000000;
+
+  /* ---------- Brand accents ---------- */
+  --rd-navy: #1b3867;
+  --rd-sky: #3cb4e5;
+  --rd-green: #61ce70;
+  --rd-green-line: #3e9c4b;
+  --rd-coral: #ff7e5f;
+  --rd-peach: #feb47b;
+  --rd-teal: #18988b;
+  --rd-accent: #b0501f;            /* light-mode stand-in for neon orange */
+  --rd-chip-ink: #2e7d3a;
+  --rd-chip-fill: rgb(97 206 112 / .09);
+  --rd-brand-bar: linear-gradient(90deg, var(--rd-coral), var(--rd-peach));
+  --rd-hero-grad: linear-gradient(270deg, var(--rd-coral), var(--rd-peach), var(--rd-sky), var(--rd-teal));
+
+  /* ---------- Type ---------- */
+  --md-font: "Sofia Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --md-font-body: "Google Sans Text", "Google Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --md-font-icon: "Material Symbols Rounded";
+
+  /* Classic scale: 12 · 14 · 16 · 18 · 21 · 24 · 36 · 48 · 72, line heights on an 8px rhythm */
+  --fs-12: .75rem; --fs-14: .875rem; --fs-16: 1rem; --fs-18: 1.125rem; --fs-21: 1.3125rem;
+  --fs-24: 1.5rem; --fs-36: 2.25rem; --fs-48: 3rem; --fs-72: 4.5rem;
+
+  /* M3 roles as `font` shorthands: use like  font: var(--headline-m); */
+  --display-l: 400 4.5rem/5rem var(--md-font);
+  --display-m: 400 3rem/3.5rem var(--md-font);
+  --headline-l: 400 2.25rem/2.5rem var(--md-font);
+  --headline-m: 400 1.5rem/2rem var(--md-font);
+  --headline-s: 700 1.5rem/2rem var(--md-font);
+  --title-l: 400 1.3125rem/2rem var(--md-font);
+  --title-m: 600 1rem/1.5rem var(--md-font);
+  --title-s: 600 .875rem/1.5rem var(--md-font);
+  --body-l: 400 1rem/1.5rem var(--md-font-body);
+  --body-m: 400 .875rem/1.5rem var(--md-font-body);
+  --label-l: 700 .875rem/1.5rem var(--md-font);
+  --label-m: 700 .75rem/1rem var(--md-font);
+
+  /* ---------- Shape ---------- */
+  --shape-xs: 4px; --shape-s: 8px; --shape-m: 12px; --shape-l: 20px; --shape-xl: 30px; --shape-full: 999px;
+
+  /* ---------- Elevation (flat by design; outlines carry structure) ---------- */
+  --elev-1: none; --elev-2: none; --elev-3: none;
+
+  /* ---------- Motion ---------- */
+  --ease-emph: cubic-bezier(.2, 0, 0, 1);
+  --ease-std: cubic-bezier(.2, 0, 0, 1);
+  --dur-s: 150ms; --dur-m: 300ms; --dur-l: 500ms;
+
+  /* ---------- Layout ---------- */
+  --margin: 16px;
+  --gap: 16px;
+  --wrap: 1120px;
+
+  color-scheme: light;
+}
+@media (min-width: 600px) { :root { --margin: 24px; --gap: 20px; } }
+@media (min-width: 840px) { :root { --margin: 32px; } }
+
+/* ---------- Dark: its own palette ---------- */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --md-primary: #b8cbf2;
+  --md-on-primary: #10223f;
+  --md-primary-container: #22365a;
+  --md-on-primary-container: #dde6f7;
+  --md-secondary: #7fcdf0;
+  --md-on-secondary: #0b2a38;
+  --md-secondary-container: #12384a;
+  --md-on-secondary-container: #c9ecfb;
+  --md-tertiary: #7edb8a;
+  --md-on-tertiary: #0e2a13;
+  --md-tertiary-container: #173d1e;
+  --md-on-tertiary-container: #bfeec6;
+  --md-error: #f2b8b5;
+  --md-on-error: #601410;
+  --md-error-container: #8c1d18;
+  --md-on-error-container: #f9dedc;
+
+  --md-surface: #121417;
+  --md-on-surface: #e6e8eb;
+  --md-on-surface-variant: #b2b8c0;
+  --md-surface-container-lowest: #0d0f12;
+  --md-surface-container-low: #16191d;
+  --md-surface-container: #1b1f24;
+  --md-surface-container-high: #22272d;
+  --md-surface-container-highest: #2a3038;
+  --md-outline: #8b929b;
+  --md-outline-variant: #2e343c;
+  --md-inverse-surface: #e6e8eb;
+  --md-inverse-on-surface: #1b1f24;
+  --md-inverse-primary: #1b3867;
+
+  --rd-accent: #ff8c3a;            /* neon orange */
+  --rd-chip-ink: #86e292;
+  --rd-chip-fill: rgb(97 206 112 / .12);
+}

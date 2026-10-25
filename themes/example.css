@@ -1,0 +1,28 @@
+/* raysan-ui · themes/example.css
+   How to brand a single project without forking the system.
+   Copy this into the project (e.g. garage-log/theme.css), load it AFTER
+   raysan-ui's CSS, and override only the tokens that change.
+   Layout, components and the theme toggle keep working untouched. */
+
+:root {
+  /* Swap the palette */
+  --md-primary: #8c0000;
+  --md-on-primary: #ffffff;
+  --md-primary-container: #f7dcdc;
+  --md-on-primary-container: #5c0000;
+  --rd-brand-bar: linear-gradient(90deg, #8c0000, #d5001c);
+
+  /* Swap the fonts (add the matching Google Fonts link in <head>) */
+  /* --md-font: "Inter", system-ui, sans-serif; */
+  /* --md-font-body: "Inter", system-ui, sans-serif; */
+
+  /* Squarer corners for a more technical feel */
+  /* --shape-xl: 12px; */
+}
+
+:root[data-theme="dark"] {
+  --md-primary: #ffb4a9;
+  --md-on-primary: #561e16;
+  --md-primary-container: #5c1a12;
+  --md-on-primary-container: #ffdad5;
+}
