@@ -82,7 +82,11 @@
 .g-fonts { display: grid; gap: var(--gap); grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); margin-bottom: 24px; }
 .g-font { padding: 24px; border-radius: var(--shape-xl); border: 1px solid var(--md-outline-variant); display: grid; gap: 8px; }
 .g-font .big { font-size: 4rem; line-height: 1; }
+.g-font { align-content: start; }
 .g-font p { font: var(--body-m); color: var(--md-on-surface-variant); }
+.g-font .g-font-role { color: var(--md-on-surface); }
+.g-font code { white-space: nowrap; }
+.g-font .chips { margin-top: 8px; }
 
 /* Icons */
 .g-icons { display: flex; flex-wrap: wrap; gap: 8px; }

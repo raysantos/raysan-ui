@@ -150,8 +150,20 @@
         <h2>Typography</h2>
         <p class="g-lede">Two families. Sizes follow a classic scale (12 · 14 · 16 · 18 · 21 · 24 · 36 · 48 · 72) with line heights on an 8px rhythm.</p>
         <div class="g-fonts">
-          <div class="g-font"><span class="big" style="font-family:var(--md-font);font-weight:700">Aa</span><strong class="title-m">Sofia Sans</strong><p>Display, headlines, titles, labels, buttons. Token: <code>--md-font</code></p></div>
-          <div class="g-font"><span class="big" style="font-family:var(--md-font-body)">Aa</span><strong class="title-m">Google Sans Text</strong><p>Body copy and long reading. Token: <code>--md-font-body</code></p></div>
+          <div class="g-font">
+            <span class="big" style="font-family:var(--md-font);font-weight:700">Aa</span>
+            <strong class="title-m">Sofia Sans</strong>
+            <p class="g-font-role">The voice: display, headlines, titles, labels, buttons. Token: <code>--md-font</code></p>
+            <p>Designed by Botio Nikoltchev and Ani Petrova of the Bulgarian studio Lettersoup (2019). It draws on early-twentieth-century technical sans serifs: confident letterforms, strong vertical emphasis and tense curves, on narrow proportions with a generous x-height. Built to work from big display sizes down to small text, on screen and in print.</p>
+            <div class="chips"><span class="chip chip-neutral">Variable weight + italic</span><span class="chip chip-neutral">4 widths</span><span class="chip chip-neutral">Latin · Greek · Cyrillic</span><span class="chip chip-neutral">SIL OFL</span></div>
+          </div>
+          <div class="g-font">
+            <span class="big" style="font-family:var(--md-font-body)">Aa</span>
+            <strong class="title-m">Google Sans Text</strong>
+            <p class="g-font-role">The reading: body copy and long text. Token: <code>--md-font-body</code></p>
+            <p>Descends from Product Sans, introduced with Google's new logo in 2015 to keep the brand consistent at small sizes. Google Sans (2017) adapted it for Material Design with a taller x-height and wider letterforms; Google Sans Text (2020) is tuned for small optical sizes. Google-only for years, it was open-sourced in December 2025.</p>
+            <div class="chips"><span class="chip chip-neutral">Text optical size</span><span class="chip chip-neutral">Geometric roots</span><span class="chip chip-neutral">SIL OFL</span></div>
+          </div>
         </div>
         <div id="type-scale"></div>
         <p class="g-lede" style="margin-top:24px">Use the role, not the size: <code>font: var(--title-m)</code> in CSS or <code>class="title-m"</code> in HTML. Display sizes step down automatically on phones.</p>
