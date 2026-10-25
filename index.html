@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#ffffff">
-  <title>raysan-ui</title>
-  <meta name="description" content="The Raysan Designs design system: tokens, base styles and components shared by every project.">
+  <title>raysan-ui Guidelines</title>
+  <meta name="description" content="Guidelines for the Raysan Designs design system: principles, brand, color, type, icons, shape, spacing, motion, components, theming and accessibility.">
   <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,32 +13,8 @@
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="docs/guidelines.css">
   <script src="js/theme-toggle.js" defer></script>
-  <style>
-    /* Docs-only layout. Uses tokens like any project would. */
-    main { padding-block: 40px 96px; }
-    section { padding-block: 40px; border-top: 1px solid var(--md-outline-variant); }
-    section > h2 { font: var(--headline-s); margin-bottom: 8px; }
-    section > p.lede { color: var(--md-on-surface-variant); margin-bottom: 24px; max-width: 60ch; }
-    .hero { padding-block: 24px 40px; display: grid; gap: 16px; }
-    .hero-bar { height: 8px; border-radius: var(--shape-full); background: var(--rd-hero-grad); max-width: 320px; }
-    .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
-    .grid-cards { display: grid; gap: var(--gap); grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
-    .swatch { border: 1px solid var(--md-outline-variant); border-radius: var(--shape-m); overflow: hidden; background: var(--md-surface); }
-    .swatch .chip-color { height: 64px; display: flex; align-items: flex-end; padding: 8px 10px; font: var(--label-m); }
-    .swatch .meta { padding: 8px 10px; font: var(--body-m); font-size: .75rem; line-height: 1.1rem; overflow-wrap: anywhere; }
-    .swatch code { color: var(--md-on-surface-variant); }
-    .type-row { display: grid; grid-template-columns: 120px 1fr; gap: 16px; align-items: baseline; padding-block: 12px; border-bottom: 1px solid var(--md-outline-variant); }
-    .type-row code { font: var(--label-m); color: var(--md-on-surface-variant); }
-    .type-row > span:last-child { overflow-wrap: anywhere; }
-    @media (max-width: 599px) { .type-row { grid-template-columns: 1fr; gap: 4px; } }
-    .shapes { display: flex; flex-wrap: wrap; gap: 16px; }
-    .shape { width: 88px; height: 88px; background: var(--md-primary-container); color: var(--md-on-primary-container); display: grid; place-items: center; font: var(--label-m); }
-    pre { margin: 0; padding: 16px; border-radius: var(--shape-m); background: var(--md-surface-container); color: var(--md-on-surface); overflow-x: auto; font: 400 .8125rem/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
-    .demo-box { padding: 24px; border: 1px dashed var(--md-outline-variant); border-radius: var(--shape-l); }
-    footer { padding-block: 32px; border-top: 1px solid var(--md-outline-variant); }
-    footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; color: var(--md-on-surface-variant); font: var(--body-m); }
-  </style>
 </head>
 <body>
   <a class="skip btn btn-filled" href="#main">Skip to content</a>
@@ -46,192 +22,393 @@
   <header class="top-app-bar">
     <div class="wrap">
       <a class="brand" href="./"><span class="brand-mark" aria-hidden="true"></span>raysan-ui</a>
-      <theme-toggle></theme-toggle>
+      <div class="row">
+        <a class="btn btn-text" href="https://github.com/raysantos/raysan-ui"><span class="ms" aria-hidden="true">code</span>GitHub</a>
+        <theme-toggle></theme-toggle>
+      </div>
     </div>
     <div class="brand-bar"></div>
   </header>
 
-  <main id="main" class="wrap">
-    <div class="hero">
-      <p class="overline">Design system · v0.1</p>
-      <h1 class="display-m">raysan-ui</h1>
-      <p class="body-l muted" style="max-width:60ch">The shared foundation for every Raysan Designs project: Material Design 3 color roles, the Sofia Sans type scale, shape, motion, a handful of components and the sun/moon theme toggle. Taken directly from raysandesigns.com.</p>
-      <div class="hero-bar" aria-hidden="true"></div>
-    </div>
+  <div class="wrap g-layout">
+    <nav class="g-toc" aria-label="Contents">
+      <p>Guidelines</p>
+      <ol>
+        <li><a href="#principles">Principles</a></li>
+        <li><a href="#brand">Brand</a></li>
+        <li><a href="#color">Color</a></li>
+        <li><a href="#type">Typography</a></li>
+        <li><a href="#icons">Iconography</a></li>
+        <li><a href="#shape">Shape &amp; elevation</a></li>
+        <li><a href="#layout">Spacing &amp; layout</a></li>
+        <li><a href="#motion">Motion</a></li>
+        <li><a href="#components">Components</a></li>
+        <li><a href="#theming">Theming a project</a></li>
+        <li><a href="#a11y">Accessibility</a></li>
+        <li><a href="#start">Get started</a></li>
+      </ol>
+    </nav>
 
-    <section id="use">
-      <h2>Use it</h2>
-      <p class="lede">Start new projects from the template folder, or paste this into any page's &lt;head&gt;. Pinning to <code>@0.1</code> picks up fixes but never breaking changes.</p>
-<pre><code>&lt;script&gt;try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}&lt;/script&gt;
-&lt;link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Text:wght@400;500;700&amp;family=Sofia+Sans:wght@300..700&amp;family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap"&gt;
+    <main id="main">
+      <div class="g-hero">
+        <p class="overline">Design system · v0.1</p>
+        <h1 class="display-m">raysan-ui guidelines</h1>
+        <p class="body-l muted" style="max-width:62ch">How every Raysan Designs site and app looks, reads and behaves. Built on Material Design 3, tuned to the raysandesigns.com look: calm surfaces, outlined cards, a coral-to-peach brand bar and a designed dark mode.</p>
+        <div class="g-hero-bar" aria-hidden="true"></div>
+      </div>
+
+      <!-- 01 Principles -->
+      <section class="g-section" id="principles">
+        <p class="overline">01</p>
+        <h2>Principles</h2>
+        <p class="g-lede">Four rules that settle most design decisions before they come up.</p>
+        <div class="g-grid-2">
+          <div class="g-principle"><span class="ms" aria-hidden="true">self_improvement</span><h3>Calm over busy</h3><p>Flat surfaces, thin outlines, slow subtle motion. Color is saved for meaning: actions, status, the brand bar.</p></div>
+          <div class="g-principle"><span class="ms" aria-hidden="true">token</span><h3>Tokens, not values</h3><p>Every color, size and radius comes from a token. If a value isn't a token, it's either a new token or a mistake.</p></div>
+          <div class="g-principle"><span class="ms" aria-hidden="true">dark_mode</span><h3>Dark is designed</h3><p>Dark mode has its own palette, not an inversion. Use tokens and it works for free; check it before shipping.</p></div>
+          <div class="g-principle"><span class="ms" aria-hidden="true">accessibility_new</span><h3>Accessible by default</h3><p>Readable contrast, visible focus, keyboard reachable, reduced motion respected. Not a later pass.</p></div>
+        </div>
+      </section>
+
+      <!-- 02 Brand -->
+      <section class="g-section" id="brand">
+        <p class="overline">02</p>
+        <h2>Brand</h2>
+        <p class="g-lede">Three brand elements carry the identity. Use them sparingly so they stay special.</p>
+        <div class="g-grid-2">
+          <div class="card">
+            <div class="row" style="gap:16px"><span class="brand-mark" style="width:56px;height:56px;border-radius:12px" aria-hidden="true"></span><span class="title-l">Raysan</span></div>
+            <p class="supporting">Brand mark</p>
+            <p>Gradient tile with a surface-colored notch. Pair with the project name in <code>title-l</code>. Use <code>.brand</code> + <code>.brand-mark</code>.</p>
+          </div>
+          <div class="card">
+            <div class="brand-bar" style="height:8px;border-radius:4px"></div>
+            <p class="supporting">Brand bar</p>
+            <p>4px coral-to-peach line under the top app bar. One per page. Token: <code>--rd-brand-bar</code>.</p>
+          </div>
+          <div class="card">
+            <div style="height:56px;border-radius:var(--shape-l);background:var(--rd-hero-grad)"></div>
+            <p class="supporting">Hero gradient</p>
+            <p>Coral, peach, sky, teal. Hero moments and case study covers only, never behind body text. Token: <code>--rd-hero-grad</code>.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 Color -->
+      <section class="g-section" id="color">
+        <p class="overline">03</p>
+        <h2>Color</h2>
+        <p class="g-lede">Material Design 3 color roles. Each role comes as a pair: a fill and an "on" color for text and icons placed on it. Ratios are calculated live for the current theme; switch themes to check dark.</p>
+
+        <h3>Accent roles</h3>
+        <div class="g-grid" data-swatches="primary secondary tertiary error"></div>
+
+        <h3>Containers</h3>
+        <div class="g-grid" data-swatches="primary-container secondary-container tertiary-container error-container"></div>
+
+        <h3>Surfaces</h3>
+        <p class="g-lede">Higher containers sit closer to the reader. Page background is <code>surface</code>; quiet panels use <code>surface-container-low</code> or <code>surface-container</code>.</p>
+        <div class="g-grid" data-swatches="surface surface-container-low surface-container surface-container-high surface-container-highest inverse-surface"></div>
+
+        <h3>Text &amp; lines</h3>
+        <div class="g-grid" data-text-swatches="on-surface on-surface-variant outline outline-variant"></div>
+
+        <h3>Brand accents</h3>
+        <p class="g-lede">Raw brand colors, prefixed <code>--rd-</code>. Use them for illustration, charts and brand moments. For UI, reach for a role first.</p>
+        <div class="g-grid" data-accents="rd-navy rd-sky rd-green rd-coral rd-peach rd-teal rd-accent"></div>
+
+        <h3>Using color</h3>
+        <div class="g-grid-2">
+          <div class="g-dd do">
+            <div class="stage"><span style="padding:10px 16px;border-radius:var(--shape-s);background:var(--md-primary-container);color:var(--md-on-primary-container);font:var(--label-l)">Container + on-container</span></div>
+            <div class="verdict"><span class="ms" aria-hidden="true">check_circle</span><div><b>Do</b>Pair every fill with its matching "on" role.</div></div>
+          </div>
+          <div class="g-dd dont">
+            <div class="stage"><span style="padding:10px 16px;border-radius:var(--shape-s);background:var(--md-primary-container);color:var(--md-secondary);font:var(--label-l)">Mixed roles</span></div>
+            <div class="verdict"><span class="ms" aria-hidden="true">cancel</span><div><b>Don't</b>Mix roles from different families. Contrast breaks, especially in dark.</div></div>
+          </div>
+          <div class="g-dd do">
+            <div class="stage"><span class="chip"><span class="ms" aria-hidden="true">check</span>Shipped</span><span class="chip chip-neutral">Draft</span></div>
+            <div class="verdict"><span class="ms" aria-hidden="true">check_circle</span><div><b>Do</b>Let one accent carry meaning; keep the rest neutral.</div></div>
+          </div>
+          <div class="g-dd dont">
+            <div class="stage"><span class="chip" style="background:var(--rd-coral);color:#fff;border-color:transparent">Hot</span><span class="chip" style="background:var(--rd-sky);color:#fff;border-color:transparent">New</span><span class="chip" style="background:var(--rd-teal);color:#fff;border-color:transparent">Cool</span></div>
+            <div class="verdict"><span class="ms" aria-hidden="true">cancel</span><div><b>Don't</b>Use raw brand colors as UI fills. Busy, and white text fails contrast.</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 Type -->
+      <section class="g-section" id="type">
+        <p class="overline">04</p>
+        <h2>Typography</h2>
+        <p class="g-lede">Two families. Sizes follow a classic scale (12 · 14 · 16 · 18 · 21 · 24 · 36 · 48 · 72) with line heights on an 8px rhythm.</p>
+        <div class="g-fonts">
+          <div class="g-font"><span class="big" style="font-family:var(--md-font);font-weight:700">Aa</span><strong class="title-m">Sofia Sans</strong><p>Display, headlines, titles, labels, buttons. Token: <code>--md-font</code></p></div>
+          <div class="g-font"><span class="big" style="font-family:var(--md-font-body)">Aa</span><strong class="title-m">Google Sans Text</strong><p>Body copy and long reading. Token: <code>--md-font-body</code></p></div>
+        </div>
+        <div id="type-scale"></div>
+        <p class="g-lede" style="margin-top:24px">Use the role, not the size: <code>font: var(--title-m)</code> in CSS or <code>class="title-m"</code> in HTML. Display sizes step down automatically on phones.</p>
+      </section>
+
+      <!-- 05 Icons -->
+      <section class="g-section" id="icons">
+        <p class="overline">05</p>
+        <h2>Iconography</h2>
+        <p class="g-lede">Material Symbols Rounded, outlined by default. Write the icon name inside <code>&lt;span class="ms"&gt;</code>; add <code>.fill</code> for the selected or active state. Decorative icons get <code>aria-hidden="true"</code>.</p>
+        <div class="g-icons">
+          <div class="g-icon"><span class="ms" aria-hidden="true">home</span><span>home</span></div>
+          <div class="g-icon"><span class="ms fill" aria-hidden="true">home</span><span>home .fill</span></div>
+          <div class="g-icon"><span class="ms" aria-hidden="true">search</span><span>search</span></div>
+          <div class="g-icon"><span class="ms" aria-hidden="true">add</span><span>add</span></div>
+          <div class="g-icon"><span class="ms" aria-hidden="true">star</span><span>star</span></div>
+          <div class="g-icon"><span class="ms fill" aria-hidden="true">star</span><span>star .fill</span></div>
+          <div class="g-icon"><span class="ms" aria-hidden="true">settings</span><span>settings</span></div>
+          <div class="g-icon"><span class="ms" aria-hidden="true">light_mode</span><span>light_mode</span></div>
+          <div class="g-icon"><span class="ms" aria-hidden="true">dark_mode</span><span>dark_mode</span></div>
+          <div class="g-icon"><span class="ms" aria-hidden="true">arrow_forward</span><span>arrow_forward</span></div>
+        </div>
+        <div class="g-table-wrap" style="margin-top:24px">
+          <table class="g-table">
+            <thead><tr><th>Size</th><th>Where</th><th>Sample</th></tr></thead>
+            <tbody>
+              <tr><td><code>18px</code></td><td>Inside buttons and chips</td><td class="sample"><span class="ms" style="font-size:18px" aria-hidden="true">check</span></td></tr>
+              <tr><td><code>22px</code></td><td>Icon buttons, theme toggle</td><td class="sample"><span class="ms" style="font-size:22px" aria-hidden="true">settings</span></td></tr>
+              <tr><td><code>24px</code></td><td>Default, lists, card icons</td><td class="sample"><span class="ms" aria-hidden="true">folder</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 06 Shape -->
+      <section class="g-section" id="shape">
+        <p class="overline">06</p>
+        <h2>Shape &amp; elevation</h2>
+        <p class="g-lede">Soft and friendly. Cards use extra-large corners; anything you press is fully rounded. The system is flat: no drop shadows, outlines do the structural work.</p>
+        <div class="g-shapes" id="shapes"></div>
+        <div class="g-table-wrap" style="margin-top:24px">
+          <table class="g-table">
+            <thead><tr><th>Token</th><th>Use for</th></tr></thead>
+            <tbody>
+              <tr><td><code>--shape-xs</code> / <code>--shape-s</code></td><td>Inline code, text fields, small tags</td></tr>
+              <tr><td><code>--shape-m</code></td><td>Swatches, tables, code blocks, card icons</td></tr>
+              <tr><td><code>--shape-l</code></td><td>Large buttons, panels, media</td></tr>
+              <tr><td><code>--shape-xl</code></td><td>Cards</td></tr>
+              <tr><td><code>--shape-full</code></td><td>Buttons, chips, icon buttons, pills</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 07 Layout -->
+      <section class="g-section" id="layout">
+        <p class="overline">07</p>
+        <h2>Spacing &amp; layout</h2>
+        <p class="g-lede">Spacing moves in 4px steps, mostly 8, 12, 16, 24, 32 and 48. Page margins and grid gaps grow with the screen.</p>
+        <div class="g-space" id="spacing"></div>
+        <div class="g-table-wrap" style="margin-top:24px">
+          <table class="g-table">
+            <thead><tr><th>Screen</th><th>Width</th><th><code>--margin</code></th><th><code>--gap</code></th></tr></thead>
+            <tbody>
+              <tr><td>Compact (phone)</td><td>under 600px</td><td>16px</td><td>16px</td></tr>
+              <tr><td>Medium (tablet)</td><td>600–839px</td><td>24px</td><td>20px</td></tr>
+              <tr><td>Expanded (desktop)</td><td>840px and up</td><td>32px</td><td>20px</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="g-lede" style="margin-top:24px">Content sits in <code>.wrap</code> (max 1120px, centered). Use <code>.stack</code> for vertical rhythm and <code>.row</code> for inline groups.</p>
+      </section>
+
+      <!-- 08 Motion -->
+      <section class="g-section" id="motion">
+        <p class="overline">08</p>
+        <h2>Motion</h2>
+        <p class="g-lede">Motion explains a change; it never decorates. Short for small things, longer for big moves, always the emphasized easing. Everything stops when the visitor asks for reduced motion.</p>
+        <div class="g-table-wrap">
+          <table class="g-table">
+            <thead><tr><th>Token</th><th>Value</th><th>Use for</th></tr></thead>
+            <tbody>
+              <tr><td><code>--dur-s</code></td><td>150ms</td><td>Hover, state layers, color changes</td></tr>
+              <tr><td><code>--dur-m</code></td><td>300ms</td><td>Theme fade, panels, small reveals</td></tr>
+              <tr><td><code>--dur-l</code></td><td>500ms</td><td>Page-level moves, large reveals</td></tr>
+              <tr><td><code>--ease-emph</code></td><td>cubic-bezier(.2, 0, 0, 1)</td><td>Everything: fast start, gentle landing</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="g-demo stack" style="margin-top:24px">
+          <div class="g-motion-track" id="motion-track"><div class="g-motion-dot"></div></div>
+          <div class="row"><button class="btn btn-tonal" type="button" id="motion-play"><span class="ms" aria-hidden="true">play_arrow</span>Play 500ms emphasized</button></div>
+        </div>
+      </section>
+
+      <!-- 09 Components -->
+      <section class="g-section" id="components">
+        <p class="overline">09</p>
+        <h2>Components</h2>
+        <p class="g-lede">The building blocks. Each one is a class (or one tag) you add to plain HTML.</p>
+
+        <div class="g-comp">
+          <h3>Buttons</h3>
+          <div class="g-demo row">
+            <button class="btn btn-filled" type="button"><span class="ms" aria-hidden="true">add</span>Filled</button>
+            <button class="btn btn-tonal" type="button">Tonal</button>
+            <button class="btn btn-outlined" type="button">Outlined</button>
+            <button class="btn btn-text" type="button">Text</button>
+            <button class="btn btn-filled" type="button" disabled>Disabled</button>
+            <a class="btn btn-filled btn-lg trail" href="#start">Large<span class="ms" aria-hidden="true">arrow_forward</span></a>
+          </div>
+          <div class="g-when">
+            <div><b>Filled · .btn-filled</b>The one main action on a screen. Save, Submit, Get started.</div>
+            <div><b>Tonal · .btn-tonal</b>Important but secondary: Open, Add another.</div>
+            <div><b>Outlined · .btn-outlined</b>Alternatives next to a filled button: Cancel, Back.</div>
+            <div><b>Text · .btn-text</b>Low-emphasis actions in cards, dialogs and toolbars.</div>
+          </div>
+        </div>
+
+        <div class="g-comp">
+          <h3>Icon button &amp; theme toggle</h3>
+          <div class="g-demo row">
+            <button class="icon-btn" type="button" aria-label="Search"><span class="ms" aria-hidden="true">search</span></button>
+            <button class="icon-btn" type="button" aria-label="Settings"><span class="ms" aria-hidden="true">settings</span></button>
+            <theme-toggle></theme-toggle>
+          </div>
+          <div class="g-when">
+            <div><b>.icon-btn</b>Toolbar actions with a well-known icon. Always add an <code>aria-label</code>.</div>
+            <div><b>&lt;theme-toggle&gt;</b>The icon-only sun/moon switch. One tag, placed in the top app bar or footer. Remembers the choice per device.</div>
+          </div>
+        </div>
+
+        <div class="g-comp">
+          <h3>Chips</h3>
+          <div class="g-demo chips">
+            <span class="chip"><span class="ms" aria-hidden="true">check</span>Shipped</span>
+            <span class="chip">GitHub Pages</span>
+            <span class="chip chip-neutral">HTML</span>
+            <span class="chip chip-neutral">CSS</span>
+          </div>
+          <div class="g-when">
+            <div><b>.chip</b>Brand green. Status and the one tag that matters.</div>
+            <div><b>.chip-neutral</b>Quiet lists: tools, categories, metadata.</div>
+          </div>
+        </div>
+
+        <div class="g-comp">
+          <h3>Cards</h3>
+          <div class="g-grid-2">
+            <a class="card" href="#components">
+              <div class="card-icon"><span class="ms" aria-hidden="true">directions_car</span></div>
+              <p class="supporting">Web app</p>
+              <h3 style="margin:0">Garage Log</h3>
+              <p>Maintenance history and upcoming work, stored as JSON and published on GitHub Pages.</p>
+              <div class="chips"><span class="chip">JSON</span><span class="chip">Pages</span></div>
+            </a>
+            <div class="card card-filled">
+              <div class="card-icon t"><span class="ms" aria-hidden="true">rss_feed</span></div>
+              <p class="supporting">Tool</p>
+              <h3 style="margin:0">RSS Reader</h3>
+              <p>Read and unread, starring, nothing else.</p>
+              <div class="card-actions"><button class="btn btn-text" type="button">Details</button><button class="btn btn-tonal" type="button">Open</button></div>
+            </div>
+          </div>
+          <div class="g-when">
+            <div><b>Anatomy</b>Icon (<code>.card-icon</code>), overline (<code>.supporting</code>), title, description, then chips or actions pinned to the bottom.</div>
+            <div><b>.card</b>Outlined, the default. Make the whole card a link with <code>&lt;a class="card"&gt;</code>.</div>
+            <div><b>.card-filled</b>Quieter surface for secondary content or cards with buttons inside.</div>
+          </div>
+        </div>
+
+        <div class="g-comp">
+          <h3>Text fields</h3>
+          <div class="g-grid-2">
+            <div class="field">
+              <label for="f-name">Name</label>
+              <input id="f-name" type="text" placeholder="Ray Santos" autocomplete="off">
+              <span class="hint">As it should print on the shirt</span>
+            </div>
+            <div class="field error">
+              <label for="f-size">Size</label>
+              <select id="f-size"><option value="">Choose a size</option><option>M</option><option>L</option></select>
+              <span class="hint">Pick a size to continue</span>
+            </div>
+          </div>
+          <div class="g-when">
+            <div><b>Always label</b>A visible <code>&lt;label&gt;</code> above every field. Placeholders are examples, not labels.</div>
+            <div><b>Errors</b>Add <code>.error</code> to the field and say how to fix it in the <code>.hint</code>.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10 Theming -->
+      <section class="g-section" id="theming">
+        <p class="overline">10</p>
+        <h2>Theming a project</h2>
+        <p class="g-lede">A project can wear its own brand (Porsche red for Garage Log, Anycubic blue for the resin matrix) without forking the system. Load a small theme file after raysan-ui and override only the tokens that change.</p>
+        <div class="g-grid-2">
+          <div>
+<pre class="g-code"><code>/* garage-log/theme.css */
+:root {
+  --md-primary: #8c0000;
+  --md-primary-container: #f7dcdc;
+  --md-on-primary-container: #5c0000;
+  --rd-brand-bar: linear-gradient(90deg,#8c0000,#d5001c);
+}
+:root[data-theme="dark"] {
+  --md-primary: #ffb4a9;
+  --md-primary-container: #5c1a12;
+  --md-on-primary-container: #ffdad5;
+}</code></pre>
+          </div>
+          <div class="g-when" style="grid-template-columns:1fr">
+            <div><b>Override</b>Color roles, fonts, the brand bar, corner radii.</div>
+            <div><b>Keep</b>Component classes, spacing, motion and the theme toggle. They adapt to whatever tokens you set.</div>
+            <div><b>Promote</b>If two projects need the same new piece, it moves into raysan-ui.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 11 Accessibility -->
+      <section class="g-section" id="a11y">
+        <p class="overline">11</p>
+        <h2>Accessibility</h2>
+        <p class="g-lede">Check these before every launch. Most are already handled if you stick to tokens and components.</p>
+        <ul class="g-check">
+          <li><span class="ms" aria-hidden="true">check_circle</span>Text meets 4.5:1 contrast (3:1 for 24px+ or bold 18px+). The color badges above show it live.</li>
+          <li><span class="ms" aria-hidden="true">check_circle</span>Everything works with a keyboard and the focus ring is visible.</li>
+          <li><span class="ms" aria-hidden="true">check_circle</span>Icon-only buttons have an <code>aria-label</code>; decorative icons have <code>aria-hidden="true"</code>.</li>
+          <li><span class="ms" aria-hidden="true">check_circle</span>Every form field has a visible label and errors explain how to fix them.</li>
+          <li><span class="ms" aria-hidden="true">check_circle</span>Images have alt text (empty <code>alt=""</code> if decorative).</li>
+          <li><span class="ms" aria-hidden="true">check_circle</span>Page works at phone width with no sideways scrolling.</li>
+          <li><span class="ms" aria-hidden="true">check_circle</span>Checked in both light and dark.</li>
+          <li><span class="ms" aria-hidden="true">check_circle</span>Animations stop under reduced motion (built into base.css).</li>
+        </ul>
+      </section>
+
+      <!-- 12 Start -->
+      <section class="g-section" id="start">
+        <p class="overline">12</p>
+        <h2>Get started</h2>
+        <p class="g-lede">Copy <code>template/index.html</code> into a new repo, or paste this into any page's <code>&lt;head&gt;</code>. Pinning to <code>@0.1</code> picks up fixes but never breaking changes.</p>
+<pre class="g-code"><code>&lt;script&gt;try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}&lt;/script&gt;
+&lt;link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Text:wght@400;500;700&amp;family=Sofia+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap"&gt;
 &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/raysantos/raysan-ui@0.1/css/tokens.css"&gt;
 &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/raysantos/raysan-ui@0.1/css/base.css"&gt;
 &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/raysantos/raysan-ui@0.1/css/components.css"&gt;
 &lt;script src="https://cdn.jsdelivr.net/gh/raysantos/raysan-ui@0.1/js/theme-toggle.js" defer&gt;&lt;/script&gt;</code></pre>
-    </section>
-
-    <section id="color">
-      <h2>Color</h2>
-      <p class="lede">M3 color roles. Pair every container with its "on" color. Toggle the theme to see the dark palette, which is designed separately rather than inverted.</p>
-      <div class="grid" id="swatches"></div>
-      <h3 class="title-m" style="margin:24px 0 12px">Brand accents</h3>
-      <div class="grid" id="accents"></div>
-    </section>
-
-    <section id="type">
-      <h2>Type</h2>
-      <p class="lede">Sofia Sans for display, headlines, titles and labels. Google Sans Text for body copy. Use as <code>font: var(--headline-m)</code> or the matching class.</p>
-      <div id="type-scale"></div>
-    </section>
-
-    <section id="shape">
-      <h2>Shape</h2>
-      <p class="lede">Corner radii. Cards use extra-large (30px), buttons and chips are fully rounded.</p>
-      <div class="shapes" id="shapes"></div>
-    </section>
-
-    <section id="buttons">
-      <h2>Buttons</h2>
-      <p class="lede"><code>.btn</code> plus a style. Add a Material Symbol in a <code>.ms</code> span for a leading icon, or <code>.trail</code> for a trailing one.</p>
-      <div class="demo-box stack">
-        <div class="row">
-          <button class="btn btn-filled" type="button"><span class="ms" aria-hidden="true">add</span>Filled</button>
-          <button class="btn btn-tonal" type="button">Tonal</button>
-          <button class="btn btn-outlined" type="button">Outlined</button>
-          <button class="btn btn-text" type="button">Text</button>
-          <button class="btn btn-filled" type="button" disabled>Disabled</button>
+        <div class="row" style="margin-top:24px">
+          <a class="btn btn-filled" href="template/index.html"><span class="ms" aria-hidden="true">rocket_launch</span>Open the starter template</a>
+          <a class="btn btn-outlined" href="https://github.com/raysantos/raysan-ui">View on GitHub</a>
         </div>
-        <div class="row">
-          <a class="btn btn-filled btn-lg trail" href="#use">Large<span class="ms" aria-hidden="true">arrow_forward</span></a>
-          <button class="icon-btn" type="button" aria-label="Settings"><span class="ms" aria-hidden="true">settings</span></button>
-          <theme-toggle></theme-toggle>
-        </div>
-      </div>
-    </section>
+      </section>
+    </main>
+  </div>
 
-    <section id="chips">
-      <h2>Chips</h2>
-      <p class="lede">Tags for tools, statuses and filters. Green is the brand default; <code>.chip-neutral</code> for quieter lists.</p>
-      <div class="demo-box chips">
-        <span class="chip"><span class="ms" aria-hidden="true">check</span>Shipped</span>
-        <span class="chip">GitHub Pages</span>
-        <span class="chip chip-neutral">HTML</span>
-        <span class="chip chip-neutral">CSS</span>
-        <span class="chip chip-neutral">JavaScript</span>
-      </div>
-    </section>
-
-    <section id="cards">
-      <h2>Cards</h2>
-      <p class="lede">Outlined by default, <code>.card-filled</code> for a quieter surface. Make the whole card a link with <code>&lt;a class="card"&gt;</code>.</p>
-      <div class="grid-cards">
-        <a class="card" href="#cards">
-          <div class="card-icon"><span class="ms" aria-hidden="true">directions_car</span></div>
-          <p class="supporting">Web app</p>
-          <h3>Garage Log</h3>
-          <p>Maintenance history and upcoming work, stored as JSON and published on GitHub Pages.</p>
-          <div class="chips"><span class="chip">JSON</span><span class="chip">Pages</span></div>
-        </a>
-        <div class="card card-filled">
-          <div class="card-icon t"><span class="ms" aria-hidden="true">rss_feed</span></div>
-          <p class="supporting">Tool</p>
-          <h3>RSS Reader</h3>
-          <p>Read and unread, starring, nothing else. Built nightly by a GitHub Action.</p>
-          <div class="card-actions"><button class="btn btn-text" type="button">Details</button><button class="btn btn-tonal" type="button">Open</button></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="fields">
-      <h2>Text fields</h2>
-      <p class="lede">Wrap a label and input in <code>.field</code>. Add <code>.error</code> and a <code>.hint</code> for validation.</p>
-      <div class="grid-cards">
-        <div class="field">
-          <label for="f-name">Name</label>
-          <input id="f-name" type="text" placeholder="Ray Santos" autocomplete="off">
-          <span class="hint">As it should print on the shirt</span>
-        </div>
-        <div class="field error">
-          <label for="f-size">Size</label>
-          <select id="f-size"><option value="">Choose a size</option><option>M</option><option>L</option></select>
-          <span class="hint">Pick a size to continue</span>
-        </div>
-      </div>
-    </section>
-
-    <section id="theming">
-      <h2>Brand a project</h2>
-      <p class="lede">Need Porsche red for Garage Log or Anycubic blue for the resin matrix? Load a small theme file after raysan-ui and override only the tokens that change. Starter: <code>themes/example.css</code>.</p>
-<pre><code>:root {
-  --md-primary: #8c0000;
-  --md-primary-container: #f7dcdc;
-  --md-on-primary-container: #5c0000;
-  --rd-brand-bar: linear-gradient(90deg, #8c0000, #d5001c);
-}
-:root[data-theme="dark"] {
-  --md-primary: #ffb4a9;
-}</code></pre>
-    </section>
-  </main>
-
-  <footer>
+  <footer class="g-foot">
     <div class="wrap">
       <span>raysan-ui · Raysan Designs</span>
       <theme-toggle></theme-toggle>
     </div>
   </footer>
 
-  <script>
-    // Build the swatches and type scale from the live tokens, so the page never drifts from tokens.css.
-    (() => {
-      const css = () => getComputedStyle(document.documentElement);
-      const roles = [
-        ['primary', 'on-primary'], ['primary-container', 'on-primary-container'],
-        ['secondary', 'on-secondary'], ['secondary-container', 'on-secondary-container'],
-        ['tertiary', 'on-tertiary'], ['tertiary-container', 'on-tertiary-container'],
-        ['error', 'on-error'], ['error-container', 'on-error-container'],
-        ['surface', 'on-surface'], ['surface-container-low', 'on-surface'],
-        ['surface-container', 'on-surface'], ['surface-container-high', 'on-surface'],
-        ['surface-container-highest', 'on-surface'], ['inverse-surface', 'inverse-on-surface'],
-        ['outline', 'surface'], ['outline-variant', 'on-surface']
-      ];
-      const accents = ['rd-navy', 'rd-sky', 'rd-green', 'rd-coral', 'rd-peach', 'rd-teal', 'rd-accent'];
-
-      const swatch = (bgVar, fgVar, name) => {
-        const el = document.createElement('div');
-        el.className = 'swatch';
-        el.innerHTML = `<div class="chip-color" style="background:var(--${bgVar});color:var(--${fgVar})">Aa</div>
-          <div class="meta"><strong>${name}</strong><br><code data-var="--${bgVar}"></code></div>`;
-        return el;
-      };
-      const fill = () => document.querySelectorAll('[data-var]').forEach((c) => { c.textContent = css().getPropertyValue(c.dataset.var).trim(); });
-
-      const sw = document.getElementById('swatches');
-      roles.forEach(([bg, fg]) => sw.append(swatch('md-' + bg, 'md-' + fg, bg)));
-      const ac = document.getElementById('accents');
-      accents.forEach((a) => ac.append(swatch(a, 'md-on-primary', a.replace('rd-', ''))));
-
-      const type = ['display-l', 'display-m', 'headline-l', 'headline-m', 'headline-s', 'title-l', 'title-m', 'title-s', 'body-l', 'body-m', 'label-l', 'label-m'];
-      const ts = document.getElementById('type-scale');
-      type.forEach((t) => {
-        const row = document.createElement('div');
-        row.className = 'type-row';
-        row.innerHTML = `<code>${t}</code><span class="${t}">${t.startsWith('display') ? 'Raysan' : 'The quick brown fox'}</span>`;
-        ts.append(row);
-      });
-
-      const sh = document.getElementById('shapes');
-      ['xs', 's', 'm', 'l', 'xl', 'full'].forEach((s) => {
-        const el = document.createElement('div');
-        el.className = 'shape';
-        el.style.borderRadius = `var(--shape-${s})`;
-        el.textContent = s;
-        sh.append(el);
-      });
-
-      fill();
-      document.addEventListener('themechange', () => requestAnimationFrame(fill));
-    })();
-  </script>
+  <script src="docs/guidelines.js" defer></script>
 </body>
 </html>
