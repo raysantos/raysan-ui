@@ -123,3 +123,18 @@ pre.g-code { margin: 0; padding: 16px; border-radius: var(--shape-m); background
 .g-foot .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; color: var(--md-on-surface-variant); font: var(--body-m); }
 .g-version { color: inherit; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
 .g-version:hover { text-decoration-thickness: 2px; }
+
+/* Brand icons */
+.g-brand-icons { display: flex; flex-wrap: wrap; gap: 16px; }
+.g-brand-icons figure { display: grid; justify-items: center; gap: 10px; padding: 20px 16px; min-width: 136px; border-radius: var(--shape-l); background: var(--md-surface-container-low); }
+.g-brand-icons figcaption { font: var(--label-m); color: var(--md-on-surface-variant); }
+.g-anatomy { display: grid; gap: 20px; padding: 24px; border: 1px solid var(--md-outline-variant); border-radius: var(--shape-xl); }
+@media (min-width: 600px) { .g-anatomy { grid-template-columns: 160px minmax(0, 1fr); align-items: start; } }
+.g-anatomy-art { position: relative; width: 160px; height: 160px; }
+.g-anatomy-art img { width: 100%; height: 100%; display: block; border-radius: 20.8%; }
+.g-safe { position: absolute; inset: 7%; border: 1.5px dashed var(--md-on-surface); border-radius: 6px; opacity: .55; }
+.g-anatomy ol { margin: 0; padding-left: 20px; display: grid; gap: 10px; font: var(--body-m); color: var(--md-on-surface-variant); }
+.g-anatomy li::marker { font: var(--label-m); color: var(--md-on-surface); }
+.g-anatomy li b { display: block; font: var(--title-s); color: var(--md-on-surface); }
+.g-anatomy code { white-space: nowrap; }
+@media (min-width: 840px) { .g-anatomy ol { grid-template-columns: 1fr 1fr; column-gap: 32px; } }

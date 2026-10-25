@@ -173,7 +173,72 @@
       <section class="g-section" id="icons">
         <p class="overline">05</p>
         <h2>Iconography</h2>
-        <p class="g-lede">Material Symbols Rounded, outlined by default. Write the icon name inside <code>&lt;span class="ms"&gt;</code>; add <code>.fill</code> for the selected or active state. Decorative icons get <code>aria-hidden="true"</code>.</p>
+        <p class="g-lede">Two tiers. <strong>Brand icons</strong> mark the things that matter most: callout sections, app icons and favicons. <strong>UI icons</strong> do the everyday work: buttons, lists, navigation. If everything gets a brand icon, nothing stands out.</p>
+
+        <h3>Brand icons</h3>
+        <p class="g-lede">Mid to high importance. A coral-to-peach tile with flat white shapes in two tones, drawn as SVG.</p>
+        <div class="g-brand-icons">
+          <figure><img class="brand-icon xl" src="icons/brand/icons-brand.svg" alt=""><figcaption>Icons &amp; brand</figcaption></figure>
+          <figure><img class="brand-icon xl" src="icons/brand/product-ux.svg" alt=""><figcaption>Product &amp; UX</figcaption></figure>
+          <figure><img class="brand-icon xl" src="icons/brand/build-tools.svg" alt=""><figcaption>Build &amp; tools</figcaption></figure>
+          <figure><img class="brand-icon xl" src="icons/brand/_template.svg" alt=""><figcaption>_template.svg</figcaption></figure>
+        </div>
+
+        <div class="stack" style="margin-top:24px">
+          <div class="g-anatomy">
+            <div class="g-anatomy-art">
+              <img src="icons/brand/build-tools.svg" alt="">
+              <span class="g-safe" aria-hidden="true"></span>
+            </div>
+            <ol>
+              <li><b>Tile</b>48 × 48, corner radius 10 (20.8%). Coral <code>#ff7e5f</code> to peach <code>#feb47b</code>, left to right.</li>
+              <li><b>Glyph area</b>Shapes sit inside an 86% box (dashed), leaving an even margin.</li>
+              <li><b>Back layer</b>Supporting shapes in white at 50%.</li>
+              <li><b>Front layer</b>One or two hero shapes in solid white, overlapping the back layer.</li>
+              <li><b>Knockouts</b>Small details (a dot, a code bracket) cut out in the tile gradient.</li>
+            </ol>
+          </div>
+          <div class="g-when">
+            <div><b>Callout sections</b>Feature and service cards, section intros. Use the 48px tile above the card title.</div>
+            <div><b>App icons</b>Each app gets its own drawn tile. Export 192 and 512 PNGs for the web manifest and 180 for <code>apple-touch-icon</code>.</div>
+            <div><b>Favicons</b>Same tile as an SVG favicon. At 16–32px, drop the back layer and keep only the front shape so it reads.</div>
+            <div><b>Not for</b>Buttons, lists, navigation or anything repeated many times on a screen. Those are UI icons.</div>
+          </div>
+        </div>
+
+        <div class="g-grid-2" style="margin-top:24px">
+          <div class="g-dd do">
+            <div class="stage"><img class="brand-icon lg" src="icons/brand/product-ux.svg" alt=""></div>
+            <div class="verdict"><span class="ms" aria-hidden="true">check_circle</span><div><b>Do</b>Build from simple geometric shapes, two tones of white, soft corners.</div></div>
+          </div>
+          <div class="g-dd dont">
+            <div class="stage">
+              <span class="brand-icon lg" style="display:grid;place-items:center;background:var(--rd-brand-bar)" aria-hidden="true">
+                <svg viewBox="0 0 48 48" width="40" height="40"><rect x="9" y="11" width="22" height="16" rx="2" fill="none" stroke="#fff" stroke-width="2"/><rect x="27" y="19" width="12" height="20" rx="2" fill="none" stroke="#1b3867" stroke-width="2"/><circle cx="33" cy="35" r="1.5" fill="#1b3867"/></svg>
+              </span>
+            </div>
+            <div class="verdict"><span class="ms" aria-hidden="true">cancel</span><div><b>Don't</b>Use outlines, extra colors or detailed illustration. It turns muddy at small sizes.</div></div>
+          </div>
+        </div>
+
+        <h3>Quick brand tile</h3>
+        <p class="g-lede">No custom drawing yet? <code>.brand-icon-ms</code> puts a filled Material Symbol on the tile. Good for prototypes; draw a proper two-tone SVG before launch.</p>
+        <div class="g-demo row" style="gap:16px">
+          <span class="brand-icon brand-icon-ms sm" aria-hidden="true"><span class="ms">timer</span></span>
+          <span class="brand-icon brand-icon-ms" aria-hidden="true"><span class="ms">directions_car</span></span>
+          <span class="brand-icon brand-icon-ms lg" aria-hidden="true"><span class="ms">rss_feed</span></span>
+          <span class="brand-icon brand-icon-ms xl" aria-hidden="true"><span class="ms">palette</span></span>
+        </div>
+<pre class="g-code" style="margin-top:16px"><code>&lt;!-- Drawn icon (preferred) --&gt;
+&lt;img class="brand-icon" src="icons/brand/product-ux.svg" alt="" width="48" height="48"&gt;
+
+&lt;!-- Quick tile --&gt;
+&lt;span class="brand-icon brand-icon-ms" aria-hidden="true"&gt;&lt;span class="ms"&gt;timer&lt;/span&gt;&lt;/span&gt;
+
+&lt;!-- Sizes: .sm 32 · default 48 · .lg 64 · .xl 96 --&gt;</code></pre>
+
+        <h3>UI icons</h3>
+        <p class="g-lede">Everyday icons. Material Symbols Rounded, outlined by default. Write the icon name inside <code>&lt;span class="ms"&gt;</code>; add <code>.fill</code> for the selected or active state. Decorative icons get <code>aria-hidden="true"</code>.</p>
         <div class="g-icons">
           <div class="g-icon"><span class="ms" aria-hidden="true">home</span><span>home</span></div>
           <div class="g-icon"><span class="ms fill" aria-hidden="true">home</span><span>home .fill</span></div>

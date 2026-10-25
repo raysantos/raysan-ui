@@ -11,6 +11,7 @@ The Raysan Designs design system. Every new project starts from it, so all my si
 | `css/tokens.css` | Design tokens: Material Design 3 color roles (light and dark), type scale, shape, motion, layout. Values come from raysandesigns.com. |
 | `css/base.css` | Reset, page defaults, type role classes, Material Symbols (`.ms`), focus ring, state layer (`.sl`), brand bar, theme fade. |
 | `css/components.css` | Buttons, icon button, chips, cards, text fields, top app bar, theme toggle styles. |
+| `icons/brand/` | Brand icon set (coral-to-peach tile, two-tone white shapes) plus `_template.svg` for drawing new ones. For callout sections, app icons and favicons. |
 | `js/scroll-progress.js` | Reading-progress bar: the hero gradient grows along the bottom of the top app bar as the page scrolls. Also tints the app bar once you scroll. |
 | `js/theme-toggle.js` | `<theme-toggle>` web component: icon-only sun/moon switch, remembered per device, synced across the page. |
 | `themes/example.css` | How to brand one project (Porsche red, Anycubic blue…) by overriding a few tokens. |

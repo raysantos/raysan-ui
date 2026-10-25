@@ -6,6 +6,7 @@
 - Top app bar gets a bottom outline and tints to `surface-container` once the page scrolls.
 - `.hero-gradient`: the animated hero gradient (400% size, 15s drift), matching the site.
 - Guidelines page replaces the docs page.
+- Brand icons: `icons/brand/` set from raysandesigns.com, `_template.svg`, `.brand-icon` sizes and the `.brand-icon-ms` quick tile. Iconography guidelines split into brand and UI tiers.
 
 ## v0.1.0 — 2026-10-25
 

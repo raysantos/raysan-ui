@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <!-- raysan-ui brand icon template
+       Tile: 48 x 48, corner radius 10 (20.8%), coral #ff7e5f to peach #feb47b, left to right.
+       Glyph area: everything inside the scale(0.86) group, so shapes keep a 3.4px safe margin.
+       Two tones only:
+         back layer  = white at 50% (supporting shapes)
+         front layer = solid white (the hero shape, max 1–2 shapes)
+       Details (a dot, a code bracket) are knocked out by filling or stroking with url(#o).
+       Flat geometric shapes, soft corners (rx 1–3), no outlines, no shadows. -->
+  <defs>
+    <linearGradient id="o" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="48" y2="0">
+      <stop offset="0" stop-color="#ff7e5f"/>
+      <stop offset="1" stop-color="#feb47b"/>
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="10" fill="url(#o)"/>
+  <g transform="translate(24 24) scale(0.86) translate(-24 -24)">
+    <g fill="#fff" fill-opacity="0.5">
+      <!-- back layer: supporting shapes -->
+      <rect x="7" y="7" width="22" height="22" rx="3"/>
+    </g>
+    <g fill="#fff">
+      <!-- front layer: the hero shape -->
+      <circle cx="30" cy="30" r="11.5"/>
+    </g>
+    <!-- knockout details: fill or stroke with url(#o) -->
+    <circle cx="30" cy="30" r="2.5" fill="url(#o)"/>
+  </g>
+</svg>
