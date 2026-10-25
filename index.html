@@ -15,11 +15,13 @@
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="docs/guidelines.css">
   <script src="js/theme-toggle.js" defer></script>
+  <script src="js/scroll-progress.js" defer></script>
 </head>
 <body>
   <a class="skip btn btn-filled" href="#main">Skip to content</a>
 
   <header class="top-app-bar">
+    <div class="scroll-progress" aria-hidden="true"></div>
     <div class="wrap">
       <a class="brand" href="./"><span class="brand-mark" aria-hidden="true"></span>raysan-ui</a>
       <div class="row">
@@ -27,7 +29,6 @@
         <theme-toggle></theme-toggle>
       </div>
     </div>
-    <div class="brand-bar"></div>
   </header>
 
   <div class="wrap g-layout">
@@ -74,7 +75,7 @@
       <section class="g-section" id="brand">
         <p class="overline">02</p>
         <h2>Brand</h2>
-        <p class="g-lede">Three brand elements carry the identity. Use them sparingly so they stay special.</p>
+        <p class="g-lede">Four brand elements carry the identity. Use them sparingly so they stay special.</p>
         <div class="g-grid-2">
           <div class="card">
             <div class="row" style="gap:16px"><span class="brand-mark" style="width:56px;height:56px;border-radius:12px" aria-hidden="true"></span><span class="title-l">Raysan</span></div>
@@ -84,7 +85,12 @@
           <div class="card">
             <div class="brand-bar" style="height:8px;border-radius:4px"></div>
             <p class="supporting">Brand bar</p>
-            <p>4px coral-to-peach line under the top app bar. One per page. Token: <code>--rd-brand-bar</code>.</p>
+            <p>Static 4px coral-to-peach line. Use it where a page has no scrolling header, like a single-screen tool or an email. Token: <code>--rd-brand-bar</code>.</p>
+          </div>
+          <div class="card">
+            <div style="position:relative;height:8px;border-radius:4px;overflow:hidden;background:var(--md-surface-container-high)"><div class="scroll-progress" data-static style="position:absolute;inset:0;height:auto;--progress:.62" aria-hidden="true"></div></div>
+            <p class="supporting">Scroll progress</p>
+            <p>The hero gradient along the bottom of the top app bar, growing left to right as you read, with the colors slowly drifting. The default header for every page; scroll this one to see it. Add <code>.scroll-progress</code> inside the header and load <code>scroll-progress.js</code>.</p>
           </div>
           <div class="card">
             <div style="height:56px;border-radius:var(--shape-l);background:var(--rd-hero-grad)"></div>
@@ -393,7 +399,8 @@
 &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/raysantos/raysan-ui@0.1/css/tokens.css"&gt;
 &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/raysantos/raysan-ui@0.1/css/base.css"&gt;
 &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/raysantos/raysan-ui@0.1/css/components.css"&gt;
-&lt;script src="https://cdn.jsdelivr.net/gh/raysantos/raysan-ui@0.1/js/theme-toggle.js" defer&gt;&lt;/script&gt;</code></pre>
+&lt;script src="https://cdn.jsdelivr.net/gh/raysantos/raysan-ui@0.1/js/theme-toggle.js" defer&gt;&lt;/script&gt;
+&lt;script src="https://cdn.jsdelivr.net/gh/raysantos/raysan-ui@0.1/js/scroll-progress.js" defer&gt;&lt;/script&gt;</code></pre>
         <div class="row" style="margin-top:24px">
           <a class="btn btn-filled" href="template/index.html"><span class="ms" aria-hidden="true">rocket_launch</span>Open the starter template</a>
           <a class="btn btn-outlined" href="https://github.com/raysantos/raysan-ui">View on GitHub</a>

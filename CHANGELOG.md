@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.1.1 — 2026-10-25
+
+- Scroll progress bar (`.scroll-progress` + `js/scroll-progress.js`), from raysandesigns.com: hero gradient grows along the header as you scroll.
+- Top app bar gets a bottom outline and tints to `surface-container` once the page scrolls.
+- Guidelines page replaces the docs page.
+
 ## v0.1.0 — 2026-10-25
 
 First release, extracted from raysandesigns.com.

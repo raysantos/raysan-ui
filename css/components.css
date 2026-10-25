@@ -75,13 +75,29 @@ a.card:hover { border-color: var(--md-outline); }
 .field.error .hint { color: var(--md-error); }
 
 /* ---------- Top app bar ---------- */
-.top-app-bar { position: sticky; top: 0; z-index: 10; background: var(--md-surface); }
+.top-app-bar {
+  position: sticky; top: 0; z-index: 10; background: var(--md-surface);
+  border-bottom: 1px solid var(--md-outline-variant);
+  transition: background-color var(--dur-m) var(--ease-std);
+}
+.top-app-bar.scrolled { background: var(--md-surface-container); }
+.top-app-bar.scrolled .brand-mark::after { background: var(--md-surface-container); }
+
+/* Reading progress: hero-gradient line that grows as the page scrolls (js/scroll-progress.js) */
+.scroll-progress {
+  position: absolute; left: 0; right: 0; bottom: -1px; height: 5px; z-index: 2; pointer-events: none;
+  background: var(--rd-hero-grad); background-size: 400% 400%;
+  animation: rd-gradient-shift 15s ease infinite;
+  transform: scaleX(var(--progress, 0)); transform-origin: left center; will-change: transform;
+}
+@keyframes rd-gradient-shift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 .top-app-bar .wrap { height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 .brand { display: inline-flex; align-items: center; gap: 12px; color: var(--md-on-surface); text-decoration: none; font: var(--title-l); }
 .brand-mark { width: 32px; height: 32px; border-radius: var(--shape-s); background: var(--rd-brand-bar); position: relative; flex: none; }
 .brand-mark::after {
   content: ""; position: absolute; left: 0; bottom: 0; width: 60%; height: 62%;
   background: var(--md-surface); border-top-right-radius: 6px;
+  transition: background-color var(--dur-m);
 }
 
 /* ---------- Theme toggle (rendered by <theme-toggle>) ---------- */

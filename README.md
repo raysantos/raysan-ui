@@ -11,6 +11,7 @@ The Raysan Designs design system. Every new project starts from it, so all my si
 | `css/tokens.css` | Design tokens: Material Design 3 color roles (light and dark), type scale, shape, motion, layout. Values come from raysandesigns.com. |
 | `css/base.css` | Reset, page defaults, type role classes, Material Symbols (`.ms`), focus ring, state layer (`.sl`), brand bar, theme fade. |
 | `css/components.css` | Buttons, icon button, chips, cards, text fields, top app bar, theme toggle styles. |
+| `js/scroll-progress.js` | Reading-progress bar: the hero gradient grows along the bottom of the top app bar as the page scrolls. Also tints the app bar once you scroll. |
 | `js/theme-toggle.js` | `<theme-toggle>` web component: icon-only sun/moon switch, remembered per device, synced across the page. |
 | `themes/example.css` | How to brand one project (Porsche red, Anycubic blue…) by overriding a few tokens. |
 | `template/index.html` | Starter page with everything wired up. Copy it to begin a new project. |
@@ -26,9 +27,10 @@ Paste into `<head>` (or start from `template/index.html`):
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/raysantos/raysan-ui@0.1/css/base.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/raysantos/raysan-ui@0.1/css/components.css">
 <script src="https://cdn.jsdelivr.net/gh/raysantos/raysan-ui@0.1/js/theme-toggle.js" defer></script>
+<script src="https://cdn.jsdelivr.net/gh/raysantos/raysan-ui@0.1/js/scroll-progress.js" defer></script>
 ```
 
-Then drop `<theme-toggle></theme-toggle>` wherever the switch should go.
+Then drop `<theme-toggle></theme-toggle>` wherever the switch should go, and put `<div class="scroll-progress" aria-hidden="true"></div>` as the first thing inside `<header class="top-app-bar">`.
 
 ## Rules for every project
 
